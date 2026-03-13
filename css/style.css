@@ -45,28 +45,28 @@ body{
     width: 80px;
 }
 
-#hipodoge-label, #boton-agua{
+#Hipodoge, #boton-agua{
     background-color: #98D8EF;
 }
-#capipepo-label, #boton-tierra{
+#Capipepo, #boton-tierra{
     background-color: #5F8B4C;
 }
-#ratigueya-label, #boton-fuego{
+#Ratigueya, #boton-fuego{
     background-color: #FFA673;
 }
 input{
     display: none;
 }
 
-#hipodoge:checked + label{
+#Hipodoge:checked + label{
     background-color: #56c4ec;
 }
 
-#capipepo:checked + label{
+#Capipepo:checked + label{
     background-color: #2f860a;
 }
 
-#ratigueya:checked + label{
+#Ratigueya:checked + label{
     background-color: #fc772a;
 }
 
