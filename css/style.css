@@ -1,142 +1,191 @@
+/* Importación de fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
-body{
+/* Estilos Generales */
+body {
     font-family: "Lora", serif;
     background-color: #FFE3BB;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-#seleccionar-mascota{
+#seleccionar-mascota, #seleccionar-ataque {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.titulo{
-    color: white;
-    font-size: 32px;
-}
-.subtitulo{
-    color: white;
-    font-size: 20px;
+    text-align: center;
 }
 
-.tarjetas{
+.titulo {
+    font-family: "Fredoka", sans-serif;
+    color: white;
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.subtitulo {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+/* Sección de Tarjetas de Mascotas */
+.tarjetas {
     display: flex;
-    flex-direction: row;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.tarjeta-de-mokepon{
+.tarjeta-de-mokepon {
     width: 180px;
     height: 100px;
     box-sizing: border-box;
     padding: 10px;
-    margin: 10px;
     border-radius: 20px;
     background-color: aquamarine;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 3px solid transparent;
 }
 
-.tarjeta-de-mokepon img{
+.tarjeta-de-mokepon:hover {
+    transform: scale(1.05);
+}
+
+.tarjeta-de-mokepon img {
     width: 80px;
+    pointer-events: none;
 }
 
-#Hipodoge, #boton-agua{
-    background-color: #98D8EF;
-}
-#Capipepo, #boton-tierra{
-    background-color: #5F8B4C;
-}
-#Ratigueya, #boton-fuego{
-    background-color: #FFA673;
-}
-input{
+/* Inputs ocultos para la lógica de selección */
+input {
     display: none;
 }
 
-#Hipodoge:checked + label{
+/* Colores específicos por tipo */
+#Hipodoge + label, #boton-agua {
+    background-color: #98D8EF;
+}
+#Capipepo + label, #boton-tierra {
+    background-color: #5F8B4C;
+}
+#Ratigueya + label, #boton-fuego {
+    background-color: #FFA673;
+}
+
+/* Estilos cuando la mascota está seleccionada */
+#Hipodoge:checked + label {
+    border: 3px solid #56c4ec;
     background-color: #56c4ec;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
-#Capipepo:checked + label{
+#Capipepo:checked + label {
+    border: 3px solid #2f860a;
     background-color: #2f860a;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
-#Ratigueya:checked + label{
+#Ratigueya:checked + label {
+    border: 3px solid #fc772a;
     background-color: #fc772a;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
 
-#boton-mascota{
-    width: 150px;
-    height: 35px;
+/* Botones de acción */
+#boton-mascota, #boton-reiniciar {
+    width: 180px;
+    height: 45px;
     border-radius: 20px;
-    background-color: transparent;
+    background-color: white;
     border: 2px solid black;
+    margin-top: 30px;
+    font-family: "Fredoka", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-#seleccionar-ataque{
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+#boton-mascota:hover {
+    background-color: black;
+    color: white;
 }
 
-.boton-ataque{
+/* Sección de Ataques y Mensajes */
+.ataques {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.boton-ataque {
     width: 130px;
     height: 45px;
     border-radius: 20px;
     margin: 5px;
-    border: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: filter 0.2s;
 }
 
-#mensajes{
-    width: 280px;
+.boton-ataque:hover {
+    filter: brightness(1.2);
+}
+
+#mensajes {
+    width: 320px;
     background-color: #4F959D;
     padding: 20px;
-    margin: 10px;
+    margin: 20px auto;
     border-radius: 40px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 
-#boton-reiniciar{
-    width: 100px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-    font-size: larger;
-}
-
-.ataques{
-    display: flex;
-}
-
-.tarjeta-jugador, .tarjeta-enemigo{
+.tarjeta-jugador, .tarjeta-enemigo {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 10px;
-    width: 145px;
-    font-size: large;
+    width: 160px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 15px;
 }
 
-@media (max-width:480px){
-    .tarjetas{
+/* Ajustes para Móviles */
+@media (max-width: 480px) {
+    .tarjetas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta-de-mokepon {
+        width: 250px;
+    }
+
+    .botones-de-ataques {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .botones-de-ataques{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .titulo {
+        font-size: 32px;
     }
 }
